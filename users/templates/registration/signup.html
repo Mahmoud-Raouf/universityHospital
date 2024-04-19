@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block content %}
+<main id="main" dir="rtl">
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 d-flex align-items-stretch">
+
+                </div>
+            </div>
+        </div>
+    </section><!-- End Why Us Section -->
+
+
+    <style>
+      .form-group{ margin-bottom: 20px;}
+    </style>
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services mt-5">
+        <div class="container col-sm-3">
+            <div class="section-title">
+                <h2>سجل كمستخدم جديد</h2>
+            </div>
+            <form method="POST" enctype="multipart/form-data" class="text-right">
+                {% csrf_token %}
+                {% bootstrap_form user_form %}
+                {% bootstrap_form profile_form %}
+
+                {% buttons %}
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <button type="submit" class="btn" style="background: #573f7b; color: white;">تسجيل </button>
+                </div>
+                {% endbuttons %}
+            </form>
+        </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>تواصل مع المستشفى</h2>
+                <p>أبناءنا الطلاب و الطالبات .. يسعدنا التواصل معكم و استقبال استفسراتكم.</p>
+            </div>
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+{% endblock %}

@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art</title>
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  
+    <!-- Add Bootstrap JS bundle -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .custom-btn {
+        background-color: #b9ad77;
+        color: #000000;
+        position: relative;
+        height: 55px;
+        box-shadow: inset 0 0 10px #fef8ac;
+        border: 2px solid #b9ad77;
+        border-radius: 20px;
+    }
+
+    .custom-btn:active,
+    .custom-btn:focus { /* التأكد من أن اللون لا يتغير عند النقر */
+        background-color: #b9ad77 !important;
+        color: #000000 !important;
+		border: 2px solid #b9ad77!important;
+		box-shadow: inset 0 0 10px #fef8ac;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+</head>
+<body style="dir:rtl;">
+    <div class="container">
+        <div class="row justify-content-center" style="margin-top: 20rem;"> <!-- توسيط الصف -->
+            <div class="col-lg-4">
+                <a href="{% url 'users:companySignup' %}" class="btn btn-primary btn-lg btn-block custom-btn">التسجيل كشركة</a>
+            </div>
+           
+            <div class="col-lg-4">
+                <a href="{% url 'users:signup' %}" class="btn btn-primary btn-lg btn-block custom-btn">التسجيل كفنان</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>

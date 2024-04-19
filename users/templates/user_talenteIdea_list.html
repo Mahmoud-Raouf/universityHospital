@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'body' %}
+<body style="background-color: #eee;">
+    <div class="container py-5 text-right">
+    <div class="breadcrumb">
+        <h1 class="mr-2"> الإطلاع على أفكارك </h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card o-hidden mb-4">
+                        <div class="card-header d-flex align-items-center border-0">
+                            <h3 class="w-50 float-left card-title m-0"></h3>
+                        </div>
+                        <div>
+                            <div class="table-responsive">
+                                <table class="table text-center" id="user_table">
+                                    <thead>
+                                        <tr style="font-size:12">
+                                            <th scope="col">إسم الشركة </th>
+                                            <th scope="col">الإسم رباعي </th>
+                                            <th scope="col">العمر </th>
+                                            <th scope="col">الوصف </th>
+                                            <th scope="col">المدينة </th>
+                                            <th scope="col">البريد الإليكتروني </th>
+                                            <th scope="col">تاريخ الإنشاء </th>
+                                            <th scope="col">تحميل الملفات </th>
+                                       
+                                            <th scope="col">حالة الفكرة </th>
+                                            <th scope="col">حذف الفكرة </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for talenteIdea in user_talenteIdea_list %}
+                                        <tr>
+                                            <td>الشركة {{talenteIdea.company.name}}</td>
+                                            <td>{{talenteIdea.name}}</td>
+                                            <td>{{talenteIdea.age}}</td>
+                                            <td>{{talenteIdea.description}}</td>
+                                            <td>{{talenteIdea.address}}</td>
+                                            <td>{{talenteIdea.email}}</td>
+                                            <td>{{talenteIdea.date|date:'d-m-Y'}}</td>
+                                            <td>
+                                                <a href="{{ talenteIdea.field.url }}" target="_blank">
+                                                    <img src="{{ talenteIdea.field.url }}" alt="صورة" style="max-width: 80px; max-height: 80px;">
+                                                </a>
+                                            </td>
+                                            
+                                           
+                                                    {% if talenteIdea.status == True %}
+                                                    <td style="color:green;font-weight: bold;"> تمت الموافقة</td>
+
+                                                    {% elif talenteIdea.status == False %}
+                                                    <td style="color:red;font-weight: bold;"> تم رفض الفكرة</td>
+
+                                                    {% else %}
+                                                    <td style="color:blue;font-weight: bold;"> تحت المراجعة</td>
+
+                                                    {% endif %}
+                                                
+
+                                            
+                                            <td> <a  class="btn btn-outline-danger   " href="{% url 'company:talenteIdea_delete' talenteIdea.id %}" style="width: 80; height: 15;">
+                                                حذف
+                                              </a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- end of main-content -->
+</div>
+</body>
+{% endblock %}
+

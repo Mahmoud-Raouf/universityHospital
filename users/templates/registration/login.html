@@ -1,0 +1,54 @@
+
+
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+
+{%block content%}
+
+  <main id="main" dir="rtl">
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4 d-flex align-items-stretch">
+          
+       
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <style>
+      .form-group{ margin-bottom: 20px;}
+    </style>
+
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services mt-5">
+      <div class="container col-sm-3">
+
+        <div class="section-title">
+          <h2>تسجيل الدخول</h2>
+        </div>
+        <form method="POST" enctype="multipart/form-data" class="text-right">
+          {% csrf_token %}
+          {% bootstrap_form login_form %}
+
+          {% buttons %}
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <button  type="submit" class="appointment-btn scrollto"><span class="d-none d-md-inline">تسجيل</span></button>
+          </div>
+          {% endbuttons %}
+      </form>
+
+      </div>
+    </section><!-- End Services Section -->
+
+
+  </main><!-- End #main -->
+  
+  {%endblock%}
